@@ -65,14 +65,14 @@
         @auth
           
         
-        <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+        <h3 class="text-xl font-semibold leading-normal  text-blueGray-700 mb-2">
           {{auth()->user()->username}}
         </h3>
         @endauth
         @auth
           
        
-        <h4 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+        <h4 class="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
           {{auth()->user()->name}}
         </h4>
         @endauth
@@ -80,16 +80,48 @@
           <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
           Barrancabermeja, Colombia
         </div>
+        @auth
+         
         <div class="mb-2 text-blueGray-600 mt-10">
           <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-          Ingeniero en Telecomunicaciones
+          Facultad:{{auth()->user()->ProgramaAcademico}}
         </div>
+        @endauth
+
+        @auth
+        <div class="mb-2 text-blueGray-600 mt-10">
+          <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+          Semestre:{{auth()->user()->semestre}}
+        </div>
+        @endauth
+
+        @auth
+        <div class="mb-2 text-blueGray-600 mt-10">
+          <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+          Direccion:{{auth()->user()->direccion}}
+        </div>
+        @endauth
+
+        @auth
+        <div class="mb-2 text-blueGray-600 mt-10">
+          <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+          Genero:{{auth()->user()->genero}}
+        </div>
+        @endauth
+
+        @auth
+        <div class="mb-2 text-blueGray-600 mt-10">
+          <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+          Telefono:{{auth()->user()->celular}}
+        </div>
+        @endauth
         <div class="mb-2 text-blueGray-600">
           <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
          Universidad Santo Tomas
         </div>
+
         @auth
-        <h4 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+        <h4 class="text-xl font-semibold leading-normal  text-blueGray-700 mb-2">
           Correo: {{auth()->user()->email}}
         </h4>
         @endauth
@@ -100,7 +132,7 @@
         <div class="flex flex-wrap justify-center">
           <div class="w-full lg:w-9/12 px-4">
             <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-              Soy el mejor del mundo
+              {{auth()->user()->descripcion}}
             <a href="javascript:void(0);" class="font-normal text-pink-500">
               Show more
             </a>

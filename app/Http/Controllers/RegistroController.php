@@ -34,6 +34,12 @@ class RegistroController extends Controller
             'username'=>Str::slug($request->username),
             'email'=>$request->email,
             'password'=>Hash::make( $request->password),
+            'ProgramaAcademico'=>$request->ProgramaAcademico,
+            'semestre'=>$request->semestre,
+            'celular'=>$request->celular,
+            'genero'=>$request->genero,
+            'direccion'=>$request->direccion,
+            'descripcion'=>$request->descripcion,
         ]);
 
        auth()->attempt([

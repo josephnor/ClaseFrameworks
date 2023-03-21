@@ -27,7 +27,7 @@ class LoginController extends Controller
 
             return back()->with('mensaje','Usuario o Contraseña incorrecta');
         }
-        return redirect()->route('accesoseguro');
+        return redirect()->route('accesoseguro',['user'=>auth()->user()->username]);
     }
 
 

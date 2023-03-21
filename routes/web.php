@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SecureurlController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 
 /*
@@ -39,6 +40,8 @@ Route::post('/registrarse',[RegistroController::class,'store']);
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'store']);
 
+Route::get('/{user:username}',[SecureurlController::class,'index'])->name('accesoseguro');
+
 Route::post('/logout',[CerrarSesionController::class,'store'])->name('logout');
 
-Route::get('/vistaperfil',[SecureurlController::class,'index'])->name('accesoseguro');
+//Route::get('/vistaperfil',[SecureurlController::class,'index'])->name('accesoseguro');
