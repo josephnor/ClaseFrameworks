@@ -23,7 +23,13 @@ class RegistroController extends Controller
         'name'=>'required|min:4',
         'username'=>'required|unique:users|min:3|max:15',
         'email'=>'required|unique:users|min:3|max:40',
-        'password'=>'required|min:6|max:50'
+        'password'=>'required|min:6|max:50',
+        'ProgramaAcademico'=>'required',
+        'celular'=>'required|min:10',
+        'genero'=>'required',
+        'direccion'=>'required|min:4',
+        'descripcion'=>'required|min:4',
+        'semestre'=>'required'
 
        ]);
 
