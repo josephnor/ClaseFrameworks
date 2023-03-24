@@ -44,4 +44,4 @@ Route::get('/{user:username}',[SecureurlController::class,'index'])->name('acces
 
 Route::post('/logout',[CerrarSesionController::class,'store'])->name('logout');
 
-//Route::get('/vistaperfil',[SecureurlController::class,'index'])->name('accesoseguro');
+Route::get('/publicaciones/create',[SecureurlController::class,'create'])->name('publicaciones.create');

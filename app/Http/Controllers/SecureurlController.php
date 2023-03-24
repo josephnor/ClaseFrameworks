@@ -19,4 +19,11 @@ class SecureurlController extends Controller
         return view('dashboard',['user'=>$users]);
     }
 
+
+    public function create(){
+
+        //dd('creando nueva publicacion');
+        return view('publicaciones.create');
+    }
+
 }
