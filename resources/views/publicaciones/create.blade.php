@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear Publiacion</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 </head>
 
 <body>
@@ -14,7 +18,8 @@
 
     <section class="bg-cover bg-cyan-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-3xl font-semibold text-white-200 text-white bg-cyan-900">
+            <a href="#"
+                class="flex items-center mb-6 text-3xl font-semibold text-white-200 text-white bg-cyan-900">
                 <img class="w-8 h-8 mr-2"
                     src="https://innpulsacolombia.com/cemprende/sites/default/files/styles/950x/public/2021-04/7.Logo_de_la_Santo_Tom%C3%A1s.png?itok=gEq3fWZ9"
                     alt="logo">
@@ -48,33 +53,32 @@
 
 
                     <div class="flex items-center justify-center w-full">
-                        <form action="{{ route('publicaciones.create') }}" method="POST" class="dropzone"
-                            id="my-awesome-dropzone">
-                            <label for="dropzone-file"
-                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
-                                        </path>
-                                    </svg>
-                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                            class="font-semibold">Click to upload</span> or drag and drop</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
-                                </div>
-                                <input id="dropzone-file" type="file" name="file" />
-                            </label>
+
+
+                        <form action="{{ route('imagenes.store') }}" method="POST"
+                            class="dropzone border-dashed border-2 w-full h-full rounded flex flex-col
+                        justify-center items-center"
+                            id="dropzone">
+                            @csrf
                         </form>
                     </div>
 
+                    <form class=" space-y-4 md:space-y-6" action="#" method="POST">
+                        @csrf
+                        @auth
+                            <div class="#">
 
+                                <a href="#"
+                                    class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    Publicar
+                                </a>
+                            </div>
+                            <div>
+                            @endauth
 
-
+                        </div>
                 </div>
             </div>
-        </div>
     </section>
 </body>
 
