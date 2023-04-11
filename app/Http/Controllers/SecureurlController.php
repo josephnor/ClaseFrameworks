@@ -26,4 +26,14 @@ class SecureurlController extends Controller
         return view('publicaciones.create');
     }
 
+    public function store(Request $request){
+        $this->validate($request,[
+            'titulo'=>'required',
+            'Descripcion'=>'required',
+            'imagen'=>'required',
+        
+        ]);
+
+    }
+
 }

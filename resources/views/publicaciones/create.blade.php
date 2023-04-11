@@ -63,7 +63,7 @@
                         </form>
                     </div>
 
-                    <form class=" space-y-4 md:space-y-6" action="#" method="POST">
+                    <form class=" space-y-4 md:space-y-6" action="{{ route('publicaciones.store')}}" method="POST">
                         @csrf
                         @auth
                             <div class="#">
