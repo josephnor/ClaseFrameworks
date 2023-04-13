@@ -44,7 +44,7 @@
                                 <div class="w-full px-4 flex justify-center">
                                     <div class="relative">
                                         <img alt="..."
-                                            src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=inQ8BXcgOdEAX-cPmUT&_nc_ht=scontent.fbga1-4.fna&oh=00_AfD1vbRxLV49yoS4Gjpq25EAw91ADnNTROzibKIXiuaoaA&oe=642EDCC2"
+                                            src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=yIEE27OKiSwAX_5KPq_&_nc_ht=scontent.fbga1-4.fna&oh=00_AfDNN2cgpDmHkSXVZg5O4RDIJ4FKw7E0qDnMhkZFU4dKTw&oe=645E8B02"
                                             class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
                                     </div>
                                 </div>

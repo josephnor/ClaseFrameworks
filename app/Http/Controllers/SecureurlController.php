@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
@@ -34,6 +35,16 @@ class SecureurlController extends Controller
         
         ]);
 
-    }
+    
 
+        Post::create([
+
+            'titulo'=>$request->titulo,
+            'Descripcion'=>$request->Descripcion,
+            'imagen'=>$request->imagen,
+            'user_id'=>auth()->user()->id
+        ]);
+
+        return redirect()->route('accesoseguro',['user'=>auth()->user()->username]);
+    }
 }

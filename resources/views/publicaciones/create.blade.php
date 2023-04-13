@@ -30,26 +30,6 @@
                 class="w-full bg-slate-700 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class=" p-6 space-y-4 md:space-y-6 sm:p-8">
 
-                    <div>
-                        <label for="titulo"
-                            class="block mb-2 text-sm font-medium text-white dark:text-white">Titulo</label>
-                        <input type="titulo" name="titulo" id="titulo"
-                            class="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nombre" required="">
-
-                    </div>
-
-                    <div>
-
-                        <label for="message"
-                            class="block mb-2 text-sm font-medium text-white dark:text-white">Descripcion</label>
-                        <textarea id="message" rows="4"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Escribe la descripcion"></textarea>
-
-
-
-                    </div>
 
 
                     <div class="flex items-center justify-center w-full">
@@ -63,21 +43,50 @@
                         </form>
                     </div>
 
-                    <form class=" space-y-4 md:space-y-6" action="{{ route('publicaciones.store')}}" method="POST">
+                    <form class=" space-y-4 md:space-y-6" action="{{ route('publicaciones.store') }}" method="POST">
                         @csrf
-                        @auth
-                            <div class="#">
-
-                                <a href="#"
-                                    class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                    Publicar
-                                </a>
-                            </div>
-                            <div>
-                            @endauth
+                        <div>
+                            <label for="titulo"
+                                class="block mb-2 text-sm font-medium text-white dark:text-white">Titulo</label>
+                            <input type="text" name="titulo" id="titulo"
+                                class="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Nombre" required="">
 
                         </div>
+
+                        <div>
+
+                            <label for="Descripcion"
+                                class="block mb-2 text-sm font-medium text-white dark:text-white">Descripcion</label>
+                            <textarea name="Descripcion" id="Descripcion" rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Escribe la descripcion">
+                            
+                            </textarea>
+
+
+
+                        </div>
+
+                        <div class='mb-6'>
+                            <input name="imagen" type="hidden" value="{{ old('imagen') }}">
+
+                        </div>
+
+
+
+                        <div>
+
+                            <input type="submit" value="Publicar"
+                                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                        </div>
+                        <div>
+
+                        </form>
+                    </div>
+
                 </div>
+                
             </div>
     </section>
 </body>

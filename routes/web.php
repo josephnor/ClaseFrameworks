@@ -46,6 +46,6 @@ Route::get('/{user:username}',[SecureurlController::class,'index'])->name('acces
 Route::post('/logout',[CerrarSesionController::class,'store'])->name('logout');
 
 Route::get('/publicaciones/create',[SecureurlController::class,'create'])->name('publicaciones.create');
-Route::get('publicaciones',[SecureurlController::class,'store'])->name('publicaciones.store');
+Route::post('publicaciones',[SecureurlController::class,'store'])->name('publicaciones.store');
 
 Route::post('/imgs',[imgController::class,'store'])->name('imagenes.store');
