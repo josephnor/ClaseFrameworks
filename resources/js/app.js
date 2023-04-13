@@ -33,7 +33,7 @@ const dropzone = new Dropzone('#dropzone', {
 
 
 
-dropzone.on("success",function(file,message){
+dropzone.on("success",function(file,response){
     document.querySelector('[name="imagen"]').value=response.imagen;
 
 

@@ -23,7 +23,8 @@
                 <img class="w-8 h-8 mr-2"
                     src="https://innpulsacolombia.com/cemprende/sites/default/files/styles/950x/public/2021-04/7.Logo_de_la_Santo_Tom%C3%A1s.png?itok=gEq3fWZ9"
                     alt="logo">
-                Crear Publicacion
+                Crear Publicacion {{ auth()->user()->name }}
+
             </a>
 
             <div
@@ -76,18 +77,23 @@
 
 
                         <div>
+                            <button type="submit"
+                                class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                                font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                                Publicar
+                            </button>
 
-                            <input type="submit" value="Publicar"
-                                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+
+
                         </div>
                         <div>
 
-                        </form>
-                    </div>
-
+                    </form>
                 </div>
-                
+
             </div>
+
+        </div>
     </section>
 </body>
 
