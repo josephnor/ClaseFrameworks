@@ -48,4 +48,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function posts(){
+        #onetomany--un usuario puede tener multiples publicaciones
+        return $this->hasMany(Post::class,'user_id');
+    }
 }

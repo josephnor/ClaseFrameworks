@@ -16,8 +16,11 @@ class SecureurlController extends Controller
     }
     public function index(User $user){
 
-    $users=User::all();
-        return view('dashboard',['user'=>$users]);
+     
+        $posts=Post::where('user_id',$user->id)->get();
+        //dd($posts);
+        //$users=User::all();
+        return view('dashboard',['user'=>$user,'posts'=>$posts]);
     }
 
 
@@ -37,13 +40,23 @@ class SecureurlController extends Controller
 
     
 
-        Post::create([
+        /*Post::create([
 
             'titulo'=>$request->titulo,
             'Descripcion'=>$request->Descripcion,
             'imagen'=>$request->imagen,
             'user_id'=>auth()->user()->id
+       ]); */
+       $post = new Post([
+        'titulo' => $request->titulo,
+        'Descripcion' => $request->Descripcion,
+        'imagen' => $request->imagen,
         ]);
+        $post->user()->associate(auth()->user());
+        $post->save();
+
+    
+
 
         return redirect()->route('accesoseguro',['user'=>auth()->user()->username]);
     }

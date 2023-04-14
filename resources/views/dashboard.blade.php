@@ -122,6 +122,8 @@
                                     </div>
                                 @endauth
 
+                                
+
                                 @auth
                                     <div class="mb-2 text-blueGray-600 mt-10">
                                         <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
@@ -138,27 +140,40 @@
                                         Correo: {{ auth()->user()->email }}
                                     </h4>
                                 @endauth
+                                
+
+                                
+
+                                
 
 
                             </div>
                             <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
                                 <div class="flex flex-wrap justify-center">
                                     <div class="w-full lg:w-9/12 px-4">
-                                        <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                            {{ auth()->user()->descripcion }}
-                                            <a href="javascript:void(0);" class="font-normal text-pink-500">
-                                                Show more
-                                            </a>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                
                 <footer class="relative  pt-8 pb-6 mt-8">
                     <div class="container mx-auto px-4">
-                        <div class="flex flex-wrap items-center md:justify-between justify-center">
+                        <h1 class="text-4x1 text-center text-gray-900 font-bold"> Publicaciones</h1>
+                        <div class="flex bg-white rounded-lg shadow-x1 mt-4 p-8">
                             <div class="w-full md:w-6/12 px-4 mx-auto text-center">
+                                <div class="grid grid-cols-1 1g:grid-cols-3 gap-8 mt4">
+                                    @foreach($posts as $post)
+                                    <div class="">
+                                        <img src="{{ asset('uploads').'/'.$post->imagen }}" alt="{{ $post->titulo }} ">
+                                        <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->titulo }}</h1>
+                                        <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->Descripcion }}</h1>
+                                    </div>
+                                    </div>
+                                    @endforeach
 
                             </div>
                         </div>

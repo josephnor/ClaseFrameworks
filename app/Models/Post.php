@@ -17,4 +17,14 @@ class Post extends Model
 
 
     ];
+
+    public function user(){
+        #onetomany--un usuario puede tener multiples publicaciones
+        return $this->belongsTo(Post::class)->select(['name','username']);
+
+        
+    }
+
+    
+    
 }
