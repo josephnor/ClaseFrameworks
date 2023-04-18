@@ -167,13 +167,18 @@
                             <div class="w-full md:w-6/12 px-4 mx-auto text-center">
                                 <div class="grid grid-cols-1 1g:grid-cols-3 gap-8 mt4">
                                     @foreach($posts as $post)
-                                    <div class="">
-                                        <img src="{{ asset('uploads').'/'.$post->imagen }}" alt="{{ $post->titulo }} ">
+                                    <div class="w-1/3 p-4  flex flex-wrap">
+                                        <img src="{{ asset('uploads').'/'.$post->imagen }}" alt="{{ $post->titulo }}" class="w-full h-48 object-cover">
                                         <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->titulo }}</h1>
                                         <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->Descripcion }}</h1>
-                                    </div>
-                                    </div>
+                                      </div>
                                     @endforeach
+                                </div>
+                                
+                                    <div>   
+                                        {{$posts->links('pagination::tailwind')}}
+
+                                    </div>
 
                             </div>
                         </div>

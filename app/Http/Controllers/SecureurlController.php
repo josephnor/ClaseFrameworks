@@ -16,8 +16,10 @@ class SecureurlController extends Controller
     }
     public function index(User $user){
 
+        //Solo trare 6 publicaciones sin importar cuantas tenga guardada el usuario
+        $posts=Post::where('user_id',$user->id)->paginate(6);
      
-        $posts=Post::where('user_id',$user->id)->get();
+        //$posts=Post::where('user_id',$user->id)->get();
         //dd($posts);
         //$users=User::all();
         return view('dashboard',['user'=>$user,'posts'=>$posts]);
