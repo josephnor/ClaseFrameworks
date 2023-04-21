@@ -19,11 +19,17 @@ class SecureurlController extends Controller
         //Solo trare 6 publicaciones sin importar cuantas tenga guardada el usuario
         $posts=Post::where('user_id',$user->id)->paginate(6);
      
-        //$posts=Post::where('user_id',$user->id)->get();
-        //dd($posts);
-        //$users=User::all();
+       
         return view('dashboard',['user'=>$user,'posts'=>$posts]);
     }
+
+    public function show($id)
+    {
+        $post=Post::find($id);
+        
+        return view('publicaciones.show', ['posts' => $post]);
+    }
+
 
 
     public function create(){
