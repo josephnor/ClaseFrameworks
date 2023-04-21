@@ -49,5 +49,5 @@ Route::get('/publicaciones/create',[SecureurlController::class,'create'])->name(
 Route::post('publicaciones',[SecureurlController::class,'store'])->name('publicaciones.store');
 
 Route::post('/imgs',[imgController::class,'store'])->name('imagenes.store');
-Route::get('/publicaciones/{id}',[SecureurlController::class,'show'])->name('publicaciones.show');
+Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'show'])->name('publicaciones.show');
 

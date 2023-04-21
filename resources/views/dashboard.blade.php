@@ -168,7 +168,7 @@
                                 <div class="grid grid-cols-3 gap-8 mt4">
                                     @foreach($posts as $post)
                                     <div class="w-full">
-                                       {{--  <a href="{{ route('publicaciones.show')}}, $post->id) }}"> --}}
+                                       <a href="{{ route('publicaciones.show', ['post'=>$post,'user'=>$user]) }}">
                                         <img src="{{ asset('uploads').'/'.$post->imagen }}" alt="{{ $post->titulo }}" class="w-full h-48 object-cover">
                                         <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->titulo }}</h1>
                                         <h1 class="text-center text-m text-gray-900 font-bold">{{ $post->Descripcion }}</h1>

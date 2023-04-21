@@ -23,11 +23,10 @@ class SecureurlController extends Controller
         return view('dashboard',['user'=>$user,'posts'=>$posts]);
     }
 
-    public function show($id)
+    public function show(User $user,Post $post)
     {
-        $post=Post::find($id);
         
-        return view('publicaciones.show', ['posts' => $post]);
+        return view('publicaciones.show',['post'=>$post,'user'=>$user]);
     }
 
 
