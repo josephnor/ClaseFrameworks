@@ -13,6 +13,7 @@ class Comentario extends Model
       
         'textoComentario',
         'user_id',
+        'post_id',
 
 
     ];
@@ -23,7 +24,7 @@ class Comentario extends Model
 
     public function user(){
         #onetomany--un usuario puede tener multiples publicaciones
-        return $this->belongsTo(Post::class)->select(['name','username']);
+        return $this->belongsTo(Post::class);
 
     }
 }

@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function posts(){
         #onetomany--un usuario puede tener multiples publicaciones
-        return $this->hasMany(Post::class,'user_id');
+        return $this->hasMany(Post::class,'post_id');
     }
 
     public function comentarios(){

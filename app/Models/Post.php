@@ -24,7 +24,9 @@ class Post extends Model
 
         
     }
-
-    
+    public function comentarios(){
+        #onetomany--un usuario puede tener multiples publicaciones
+        return $this->hasMany(Comentario::class);
+    }
     
 }

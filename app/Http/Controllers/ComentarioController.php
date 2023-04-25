@@ -14,7 +14,7 @@ class ComentarioController extends Controller
         return view('comentarios.create', compact('post'));
     } */
 
-    public function store(Request $request)
+    public function store(Request $request,User $user,Post $post)
     {
       
         $this->validate($request, [
@@ -22,19 +22,21 @@ class ComentarioController extends Controller
 
         ]);
 
-        $comentario = new Comentario([
+        Comentario::create([
             'textoComentario' => $request->textoComentario,
+            'post_id'=>$post->id,
+            'user_id'=>auth()->user()->id
            
         ]);
-        $comentario->user()->associate(auth()->user());
-        $comentario->save();
 
-        return redirect()->route('accesoseguro', ['user' => auth()->user()->username]);
+       
+
+        return back();
     }
 
     public function show(User $user,Post $post, comentario $comentario)
     {
-        return view('comentarios.show',['post'=>$post,'user'=>$user,'comentario'=>$comentario]);
+        return view('publicaciones.show',['post'=>$post,'user'=>$user,'comentario'=>$comentario]);
     }
 
    /*  public function edit(Post $post, comentario $comentario)

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    @csrf
     <!-- component -->
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet"
@@ -37,10 +38,24 @@
                                         {{ $post->created_at->diffForHumans() }}</p>
                                     <h1 class="text-center text-l text-gray-900 font-normal">Comentarios:</h1>
 
-                                    <p class="text-center text-s text-gray-900 font-sans">
-                                            {{ $comentario->textoComentario}}</p>    
+                                   
+                                        @if ($post->comentarios->count())
+                                        @foreach ($post->comentarios as $comentario)
                                             
-                                    <form action="{{ route('comentarios.store')}}" method="POST">
+                                        
+                                        <p class="text-center text-s text-gray-900 font-sans">
+                                            {{ $comentario->textoComentario}}</p> 
+                                        <p class="text-center text-s text-gray-900 font-sans">
+                                                {{ $comentario->created_at->diffForHumans()}}</p> 
+
+                                                @endforeach   
+                                        
+                                        @else
+                                        <p class="text-center text-s text-gray-900 font-sans">Aun no hay comentarios</p>
+                                        @endif 
+                                               
+                                            
+                                    <form action="{{ route('comentarios.store',['post'=>$post,'user'=>$user])}}" method="POST">
                                         @csrf
                                         <input type="hidden" name="textoComentario" value="">
                                         <textarea name="textoComentario" placeholder="Agregar comentario" class="w-full p-2 my-4"></textarea>

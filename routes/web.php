@@ -58,7 +58,7 @@ Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'s
 Route::get('publicaciones/{user:username}/{post}/comentarios/create',[ComentarioController::class,'create'])->name('comentarios.create');
 
 // Ruta para almacenar el comentario en la base de datos
-Route::post('publicaciones/comentarios', [ComentarioController::class,'store'])->name('comentarios.store');
+Route::post('publicaciones/{user:username}/{post}', [ComentarioController::class,'store'])->name('comentarios.store');
 
 // Ruta para mostrar un comentario específico
 Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'show'])->name('comentarios.show');
