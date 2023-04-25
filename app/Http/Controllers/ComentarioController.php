@@ -14,7 +14,7 @@ class ComentarioController extends Controller
         return view('comentarios.create', compact('post'));
     } */
 
-    public function store(Request $request,User $user,Post $post)
+    public function store(Request $request,User $user,Post $post,comentario $comentario)
     {
       
         $this->validate($request, [

@@ -25,7 +25,8 @@
                         <div class="w-full md:w-6/12 px-4 mx-auto text-center">
                             <div class=" gap-8 mt4">
                                 <div class=" w-full">
-
+                                    <form action="{{ route('comentarios.store',['post'=>$post,'user'=>$user])}}" method="POST">
+                                        @csrf
                                     <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="{{ $post->titulo }}"
                                         class="w-full h-48 object-cover">
                                     <h1 class="text-center text-xl text-gray-900 font-bold">{{ $post->titulo }}</h1>
@@ -41,7 +42,8 @@
                                    
                                         @if ($post->comentarios->count())
                                         @foreach ($post->comentarios as $comentario)
-                                            
+                                       {{--  <a href="{{route('accesoseguro',$comentario->user)}}" class="text-center text-s text-gray-900 font-sans">
+                                            {{ $comentario->user->username}}</a>  --}}
                                         
                                         <p class="text-center text-s text-gray-900 font-sans">
                                             {{ $comentario->textoComentario}}</p> 
@@ -55,8 +57,8 @@
                                         @endif 
                                                
                                             
-                                    <form action="{{ route('comentarios.store',['post'=>$post,'user'=>$user])}}" method="POST">
-                                        @csrf
+                                    
+                                        
                                         <input type="hidden" name="textoComentario" value="">
                                         <textarea name="textoComentario" placeholder="Agregar comentario" class="w-full p-2 my-4"></textarea>
                                         <button type="submit"
