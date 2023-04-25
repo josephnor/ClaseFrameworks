@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CerrarSesionController;
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\imgController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
@@ -51,3 +52,22 @@ Route::post('publicaciones',[SecureurlController::class,'store'])->name('publica
 Route::post('/imgs',[imgController::class,'store'])->name('imagenes.store');
 Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'show'])->name('publicaciones.show');
 
+
+
+// Ruta para mostrar el formulario de creación de comentarios
+Route::get('publicaciones/{user:username}/{post}/comentarios/create',[ComentarioController::class,'create'])->name('comentarios.create');
+
+// Ruta para almacenar el comentario en la base de datos
+Route::post('publicaciones/comentarios', [ComentarioController::class,'store'])->name('comentarios.store');
+
+// Ruta para mostrar un comentario específico
+Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'show'])->name('comentarios.show');
+
+// Ruta para mostrar el formulario de edición de un comentario
+Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}/edit',[ComentarioController::class,'edit'])->name('comentarios.edit');
+
+// Ruta para actualizar un comentario en la base de datos
+Route::put('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'update'])->name('comentarios.update');
+
+// Ruta para eliminar un comentario de la base de datos
+Route::delete('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');

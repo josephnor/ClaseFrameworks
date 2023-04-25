@@ -54,4 +54,10 @@ class User extends Authenticatable
         #onetomany--un usuario puede tener multiples publicaciones
         return $this->hasMany(Post::class,'user_id');
     }
+
+    public function comentarios(){
+        #onetomany--un usuario puede tener multiples publicaciones
+        return $this->hasMany(Comentario::class,'user_id');
+    }
+
 }
