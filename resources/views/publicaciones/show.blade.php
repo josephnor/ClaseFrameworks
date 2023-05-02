@@ -42,8 +42,8 @@
                                    
                                         @if ($post->comentarios->count())
                                         @foreach ($post->comentarios as $comentario)
-                                       {{--  <a href="{{route('accesoseguro',$comentario->user)}}" class="text-center text-s text-gray-900 font-sans">
-                                            {{ $comentario->user->username}}</a>  --}}
+                                       <a href="{{route('accesoseguro',$comentario->user)}}" class="text-center text-s text-gray-900 font-sans">
+                                            {{ $comentario->user->username}}</a>
                                         
                                         <p class="text-center text-s text-gray-900 font-sans">
                                             {{ $comentario->textoComentario}}</p> 

@@ -19,12 +19,10 @@ class Comentario extends Model
     ];
     public function post()
     {
-        return $this->belongsTo(Post::class)->select(['titulo']);
+        return $this->belongsTo(Post::class);
     }
 
     public function user(){
-        #onetomany--un usuario puede tener multiples publicaciones
-        return $this->belongsTo(Post::class);
-
+        return $this->belongsTo(USer::class);
     }
 }
