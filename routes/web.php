@@ -60,14 +60,14 @@ Route::get('publicaciones/{user:username}/{post}/comentarios/create',[Comentario
 // Ruta para almacenar el comentario en la base de datos
 Route::post('publicaciones/{user:username}/{post}', [ComentarioController::class,'store'])->name('comentarios.store');
 
-// Ruta para mostrar un comentario específico
+/* // Ruta para mostrar un comentario específico
 Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'show'])->name('comentarios.show');
 
 // Ruta para mostrar el formulario de edición de un comentario
 Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}/edit',[ComentarioController::class,'edit'])->name('comentarios.edit');
 
 // Ruta para actualizar un comentario en la base de datos
-Route::put('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'update'])->name('comentarios.update');
+Route::put('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'update'])->name('comentarios.update'); */
 
 // Ruta para eliminar un comentario de la base de datos
-Route::delete('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
+Route::delete('publicaciones/{user:username}/{post}/comentarios',[ComentarioController::class,'destroy'])->name('comentarios.destroy');

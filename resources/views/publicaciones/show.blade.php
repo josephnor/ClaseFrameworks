@@ -37,20 +37,40 @@
                                     @endauth
                                     <p class="text-center text-s text-gray-900 font-sans">
                                         {{ $post->created_at->diffForHumans() }}</p>
+
+                                         <input type="hidden" name="textoComentario" value="">
+                                        <textarea name="textoComentario" placeholder="Agregar comentario" class="w-full p-2 my-4"></textarea>
+                                        <button type="submit"
+                                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button>
+                                    </form>
+                                    <br>
+                                    <br>
                                     <h1 class="text-center text-l text-gray-900 font-normal">Comentarios:</h1>
 
                                    
                                         @if ($post->comentarios->count())
                                         @foreach ($post->comentarios as $comentario)
-                                       <a href="{{route('accesoseguro',$comentario->user)}}" class="text-center text-s text-gray-900 font-sans">
+                                       <a href="{{route('accesoseguro',$comentario->user)}}" class="text-center text-s text-gray-900 font-bold">
                                             {{ $comentario->user->username}}</a>
-                                        
+                            
+                                       
+                                    
                                         <p class="text-center text-s text-gray-900 font-sans">
                                             {{ $comentario->textoComentario}}</p> 
                                         <p class="text-center text-s text-gray-900 font-sans">
                                                 {{ $comentario->created_at->diffForHumans()}}</p> 
 
-                                                @endforeach   
+
+
+                                                <form action="{{ route('comentarios.destroy',['user' => $user, 'post' => $post,'comentario'=>$comentario])}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" value="eliminarComentario"
+                                                 class="inline-block px-1 py-1 bg-blue-600 text-white font-medium text-s leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                                >x</button>
+                                                </form>    
+
+                                         @endforeach   
                                         
                                         @else
                                         <p class="text-center text-s text-gray-900 font-sans">Aun no hay comentarios</p>
@@ -59,11 +79,7 @@
                                             
                                     
                                         
-                                        <input type="hidden" name="textoComentario" value="">
-                                        <textarea name="textoComentario" placeholder="Agregar comentario" class="w-full p-2 my-4"></textarea>
-                                        <button type="submit"
-                                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button>
-                                    </form>
+                                       
                                 </div>
                             </div>
                         </div>

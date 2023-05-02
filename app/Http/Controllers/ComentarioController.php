@@ -39,6 +39,13 @@ class ComentarioController extends Controller
         return view('publicaciones.show',['post'=>$post,'user'=>$user,'comentario'=>$comentario]);
     }
 
+
+    public function destroy( comentario $comentario)
+    {
+        $comentario->delete();
+
+        return back();
+    } 
    /*  public function edit(Post $post, comentario $comentario)
     {
         return view('comentarios.edit', compact('post', 'comentario'));
@@ -54,11 +61,6 @@ class ComentarioController extends Controller
 
         return redirect('/posts/' . $post->id);
     }
-
-    public function destroy(Post $post, comentario $comentario)
-    {
-        $comentario->delete();
-
-        return redirect('/posts/' . $post->id);
-    } */
+*/
+    
 }
