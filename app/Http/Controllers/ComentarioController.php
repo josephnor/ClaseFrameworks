@@ -40,12 +40,16 @@ class ComentarioController extends Controller
     }
 
 
-    public function destroy( comentario $comentario)
+    public function destroy( comentario $comentario,$id)
     {
+        $comentario= Comentario::findOrFail($id);
         $comentario->delete();
 
         return back();
     } 
+
+
+
    /*  public function edit(Post $post, comentario $comentario)
     {
         return view('comentarios.edit', compact('post', 'comentario'));

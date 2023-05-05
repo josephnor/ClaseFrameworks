@@ -70,4 +70,5 @@ Route::get('publicaciones/{user:username}/{post}/comentarios/{comentario}/edit',
 Route::put('publicaciones/{user:username}/{post}/comentarios/{comentario}',[ComentarioController::class,'update'])->name('comentarios.update'); */
 
 // Ruta para eliminar un comentario de la base de datos
-Route::delete('publicaciones/{user:username}/{post}/comentarios',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
+Route::delete('publicaciones/{post}/comentarios',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
+Route::delete('publicaciones/{post}',[SecureurlController::class,'destroy'])->name('publicaciones.destroy');

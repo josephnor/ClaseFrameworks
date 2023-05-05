@@ -61,21 +61,45 @@
                                                 {{ $comentario->created_at->diffForHumans()}}</p> 
 
 
+                                        
 
-                                                <form action="{{ route('comentarios.destroy',['user' => $user, 'post' => $post,'comentario'=>$comentario])}}" method="POST">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" value="eliminarComentario"
-                                                 class="inline-block px-1 py-1 bg-blue-600 text-white font-medium text-s leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                                                >x</button>
-                                                </form>    
+
+                                        <form action="{{ route('comentarios.destroy',$comentario->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="eliminarComentario"
+                                            class="inline-block px-1 py-1 bg-blue-600 text-white font-medium text-s leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        >x</button>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        </form>    
 
                                          @endforeach   
                                         
                                         @else
                                         <p class="text-center text-s text-gray-900 font-sans">Aun no hay comentarios</p>
                                         @endif 
-                                               
+
+
+                                        @auth
+                                        @if ($post->user_id==auth()->user()->id)
+                                            
+                        
+                                        
+                                    <form action="{{route('publicaciones.destroy',$post)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit"
+                                        value="Eliminar Post"
+                                        class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">    
+                                        
+                        
+                                        
+                                        </form>   
+                                        @endif  
+                                        @endauth          
                                             
                                     
                                         

@@ -62,4 +62,16 @@ class SecureurlController extends Controller
 
         return redirect()->route('accesoseguro', ['user' => auth()->user()->username]);
     }
+
+
+    public function destroy(Post $post){
+        //dd("se elemirara el ",$post->id);
+    $this->authorize('delete',$post);
+    $post->delete();
+
+    return redirect()->route('accesoseguro',auth()->user()->username);
+
+
+
+    }
 }
