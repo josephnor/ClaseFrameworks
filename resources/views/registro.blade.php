@@ -15,19 +15,19 @@
 
     <section class="bg-cover bg-[url('/img/ustafondo.jpeg')]">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-3xl font-semibold text-white-200 text-white bg-gray-800">
+            <a href="#" class="flex items-center mb-8 text-4xl font-semibold text-white-200 text-white bg-gray-800 rounded-lg ">
                 <img class="w-8 h-8 mr-2"
                     src="https://innpulsacolombia.com/cemprende/sites/default/files/styles/950x/public/2021-04/7.Logo_de_la_Santo_Tom%C3%A1s.png?itok=gEq3fWZ9"
                     alt="logo">
-                Universidad Santo Tomas
+                Universidad Santo Tomas 
             </a>
             <div
-                class="w-full bg-slate-700 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <div class=" p-6 space-y-4 md:space-y-6 sm:p-8">
+                class="w-full bg-slate-700 rounded-lg shadow dark:border md:mt-0 sm:max-w-4xl xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-10 space-x-1 md:space-y-6 sm:p-4">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl dark:text-white">
                         Crear una cuenta
                     </h1>
-                    <form class="space-y-4 md:space-y-6" action="{{route('registro')}}" method="POST">
+                    <form class=" grid grid-cols-3 grid-rows-4 gap-4 space-y-4 md:space-y-8 md:space-x-px" action="{{route('registro')}}" method="POST">
                         @csrf
 
                         <div>
@@ -184,23 +184,28 @@
                                 <p class="bg-red-600 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="flex items-start">
+                        
+                        </div>
+                        <div class="flex flex-col items-center">
                             <div class="flex items-center h-5">
                                 <input id="terms" aria-describedby="terms" type="checkbox"
                                     class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                                     required="">
                             </div>
+                            
                             <div class="ml-3 text-sm">
                                 <label for="terms" class="font-light text-white dark:text-gray-300">I accept the <a
                                         class="font-medium text-primary-600 hover:underline dark:text-primary-500"
                                         href="#">Terms and Conditions</a></label>
                             </div>
                         </div>
+                        <br>
                         <button type="submit" value="registrarse"
-                            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            class=" flex flex-col items-center w-full text-white bg-slate-500 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                             Crear una cuenta
                         </button>
-                        <p class="text-sm font-light text-white dark:text-gray-400">
+                        <br>
+                        <p class="text-sm font-light text-white dark:text-gray-400 text-center">
                             Already have an account? <a href="/login"
                                 class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
                         </p>
