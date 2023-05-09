@@ -54,6 +54,10 @@ Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'s
 
 
 
+Route::post('likes', [LikeController::class,'store'])->name('likes.store');
+Route::get('/likes',[LikeController::class,'create'])->name('likes.create');
+
+
 // Ruta para mostrar el formulario de creación de comentarios
 Route::get('publicaciones/{user:username}/{post}/comentarios/create',[ComentarioController::class,'create'])->name('comentarios.create');
 
@@ -72,3 +76,6 @@ Route::put('publicaciones/{user:username}/{post}/comentarios/{comentario}',[Come
 // Ruta para eliminar un comentario de la base de datos
 Route::delete('publicaciones/{post}/comentarios',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
 Route::delete('publicaciones/{post}',[SecureurlController::class,'destroy'])->name('publicaciones.destroy');
+
+
+

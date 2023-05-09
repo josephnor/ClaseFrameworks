@@ -59,6 +59,10 @@ class User extends Authenticatable
         #onetomany--un usuario puede tener multiples publicaciones
         return $this->hasMany(Comentarios::class);
     }
+    /* public function likes(){
+        #onetomany--un usuario puede tener multiples publicaciones
+        return $this->hasMany(Likes::class);
+    } */
 
     
 

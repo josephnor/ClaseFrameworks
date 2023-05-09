@@ -19,7 +19,7 @@ class Post extends Model
     ];
 
     public function user(){
-        #onetomany--un usuario puede tener multiples publicaciones
+        
         return $this->belongsTo(User::class)->select(['name','username']);
 
         
@@ -28,5 +28,10 @@ class Post extends Model
         #onetomany--un usuario puede tener multiples publicaciones
         return $this->hasMany(Comentario::class);
     }
+   /*  public function likes(){
+        
+        return $this->hasMany(Likes::class);
+    } */
+
     
 }
