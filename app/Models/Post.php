@@ -28,10 +28,10 @@ class Post extends Model
         #onetomany--un usuario puede tener multiples publicaciones
         return $this->hasMany(Comentario::class);
     }
-   /*  public function likes(){
+   public function likes(){
         
-        return $this->hasMany(Likes::class);
-    } */
+        return $this->hasMany(Like::class);
+    }
 
     
 }

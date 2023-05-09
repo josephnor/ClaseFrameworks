@@ -3,6 +3,7 @@
 use App\Http\Controllers\CerrarSesionController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\imgController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SecureurlController;
@@ -55,7 +56,7 @@ Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'s
 
 
 Route::post('likes', [LikeController::class,'store'])->name('likes.store');
-Route::get('/likes',[LikeController::class,'create'])->name('likes.create');
+//Route::get('/likes',[LikeController::class,'create'])->name('likes.create');
 
 
 // Ruta para mostrar el formulario de creación de comentarios
