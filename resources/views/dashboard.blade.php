@@ -211,7 +211,7 @@
                 <div class="border-b border-gray-100"></div> 
                 <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <div class="grid grid-cols-8 col-span-2   gap-2  ">
-                        <div class=" overflow-hidden rounded-xl col-span-2 max-h-[14rem]">
+                        <div class=" overflow-hidden rounded-xl col-span-2 ">
                             {{ $post->titulo }}
                             {{-- <a href="{{ route('publicaciones.show', ['post'=>$post,'user'=>$user]) }}"> --}}
                             <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="{{ $post->titulo }}"  class="h-full w-full object-cover">
