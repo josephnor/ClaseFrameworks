@@ -23,7 +23,7 @@
         <!-- logo -->
         <div class="inline-flex">
             <a class="_o6689fn" href="/dashboard">
-                <img class="w-8 h-8 mr-2"
+                <img class="w-11 h-11 mr-2"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Logo_USTA.png/600px-Logo_USTA.png?20170209200842"
                 alt="logo">
             </a>
@@ -93,7 +93,7 @@
         
             <div class="bg-white shadow rounded-lg p-10">
                 <div class="flex flex-col gap-1 text-center items-center">
-                    <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=yIEE27OKiSwAX_5KPq_&_nc_ht=scontent.fbga1-4.fna&oh=00_AfDNN2cgpDmHkSXVZg5O4RDIJ4FKw7E0qDnMhkZFU4dKTw&oe=645E8B02" alt="">
+                    <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802" alt="">
                     @auth
                     <p class="font-semibold">{{ auth()->user()->name }}</p>
                     @endauth
@@ -170,7 +170,7 @@
                 <div class="flex flex-row px-2 py-3 mx-3">
                     
                     <div class="w-auto h-auto rounded-full">
-                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=yIEE27OKiSwAX_5KPq_&_nc_ht=scontent.fbga1-4.fna&oh=00_AfDNN2cgpDmHkSXVZg5O4RDIJ4FKw7E0qDnMhkZFU4dKTw&oe=645E8B02">
+                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802">
                     </div>
                     <div class="flex flex-col mb-2 ml-4 mt-1">
                         <div class="text-gray-600 text-sm font-semibold">{{ auth()->user()->username }}</div>
@@ -253,7 +253,7 @@
                 </div> 
                 <div class="flex w-full border-t border-gray-100">
                     <div class="mt-3 mx-5 flex flex-row text-xs">
-                        <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms"> 30</div></div>
+                        <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms">{{ $post->comentarios->count() }}</div></div>
                         <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Views: <div class="ml-1 text-gray-400 text-ms"> 60k</div></div>
                     </div>
                     <div class="mt-3 mx-5 w-full flex justify-end text-xs">
@@ -267,7 +267,7 @@
                 @if ($post->comentarios->count())
                     @foreach ($post->comentarios as $comentario)
                 <div class="text-black p-4 antialiased flex">
-                    <img class="rounded-full h-8 w-8 mr-2 mt-1 " src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=yIEE27OKiSwAX_5KPq_&_nc_ht=scontent.fbga1-4.fna&oh=00_AfDNN2cgpDmHkSXVZg5O4RDIJ4FKw7E0qDnMhkZFU4dKTw&oe=645E8B02">
+                    <img class="rounded-full h-8 w-8 mr-2 mt-1 " src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802">
                     <div>
                         <div class="bg-gray-100 rounded-lg px-4 pt-2 pb-2.5">
                             <div class="font-semibold text-sm leading-relaxed">
@@ -310,14 +310,14 @@
             class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
 
             <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar"
-                src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=yIEE27OKiSwAX_5KPq_&_nc_ht=scontent.fbga1-4.fna&oh=00_AfDNN2cgpDmHkSXVZg5O4RDIJ4FKw7E0qDnMhkZFU4dKTw&oe=645E8B02">
+                src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802">
             <span class="absolute inset-y-0 right-0 flex items-center pr-6">
 
                 <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-blue-500">
                     Enviar
                 </button>
             </span>
-            <input type="search" name="textoComentario"
+            <input type="text" name="textoComentario"
                 class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"
                 style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
         </div>
