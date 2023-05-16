@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Feed</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -55,20 +55,19 @@
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                            
-
-
-
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                           
+                           {{--  <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                 <li>
   
                                   <form class="" action="" method="POST">
                                       @csrf
                                       @auth
-                                  <a href="{{ route('inicio') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Inicio</a>
+                                  <a href="{{ route('accesoseguro') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mi Perfil</a>
                                   @endauth
                               </form>  
-                              </li>
-                           
+                              </li> --}}
+                            
+                            
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                               <li>
 
@@ -100,55 +99,7 @@
         <!-- end login -->
     </nav>
     
-    <main class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-12  w-2xl container px-2 mx-auto">
-    
-        <aside class="">
-        
-            <div class="bg-white shadow rounded-lg p-10">
-                <a href="{{ route('inicio') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Inicio</a>
-
-                <div class="flex flex-col gap-1 text-center items-center">
-                    <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802" alt="">
-                    @auth
-                    <p class="font-semibold">{{ auth()->user()->name }}</p>
-                    @endauth
-
-                    @auth
-                    <h3 class="text-xl font-semibold leading-normal  text-blueGray-700 mb-2">
-                        @ {{ auth()->user()->username }}
-                    </h3>
-                @endauth
-                @auth
-                    
-                
-                    <div class="text-sm leading-normal text-gray-400 flex justify-center items-center">
-                    <svg viewBox="0 0 24 24" class="mr-1" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    Barrancabermeja, Colombia |Facultad:{{ auth()->user()->ProgramaAcademico }}| Semestre:{{ auth()->user()->semestre }}| Direccion:{{ auth()->user()->direccion }}| Genero:{{ auth()->user()->genero }}| Telefono:{{ auth()->user()->celular }}
-                    </div>
-                    @endauth
-                    @auth
-                    <h4 class="text-s font-semibold leading-normal  text-blueGray-700 mb-2">
-                        Correo: {{ auth()->user()->email }}
-                    </h4>
-                @endauth
-
-                </div>
-                <div class="flex justify-center items-center gap-2 my-3">
-                    <div class="font-semibold text-center mx-4">
-                        <p class="text-black">102</p>
-                        <span class="text-gray-400">Posts</span>
-                    </div>
-                    <div class="font-semibold text-center mx-4">
-                        <p class="text-black">102</p>
-                        <span class="text-gray-400">Followers</span>
-                    </div>
-                    <div class="font-semibold text-center mx-4">
-                        <p class="text-black">102</p>
-                        <span class="text-gray-400">Folowing</span>
-                    </div>
-                </div>
-            </div>
-    
+   
           
     
           <br>
@@ -178,7 +129,8 @@
 
     {{-- Mostrar publicacion --}}
     
-    @foreach ($posts as $post)       
+    @foreach($users as $user)
+    @if($user->lastPost)
     <div class="bg-white shadow rounded-lg mb-6">
              
                 
@@ -188,55 +140,34 @@
                         <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802">
                     </div>
                     <div class="flex flex-col mb-2 ml-4 mt-1">
-                        <div class="text-gray-600 text-sm font-semibold">{{ auth()->user()->username }}</div>
-                @auth
-                @if ($post->user_id == auth()->user()->id)
-                <form action="{{ route('publicaciones.destroy', $post) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit"
-                    value="Eliminar Post"
-                    class="font-extralight text-sm  hover:font-bold">    
-        
-                </form>   
-                    @endif  
-                    @endauth        
+                        <div class="text-gray-600 text-sm font-semibold">{{ $user->name }}</div>
+                   
                         <div class="flex w-full mt-1">
                             <div class="text-blue-700 font-base text-xs mr-1 cursor-pointer">
                                 CEO
                             </div> 
                             <div class="text-gray-400 font-thin text-xs">
-                                •{{ $post->created_at->diffForHumans() }}</p>
+                                •{{ $user->lastPost->created_at->diffForHumans() }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {{-- Dar y mostrar likes --}}
-
-                
-                
-           
-
-                
-                
-                
 
                 
                 <div class="border-b border-gray-100"></div> 
                 <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <div class="grid grid-cols-8 col-span-2   gap-2  ">
                         <div class=" overflow-hidden rounded-xl col-span-2 ">
-                            {{ $post->titulo }}
+                            {{ $user->lastPost->titulo }}
                             {{-- <a href="{{ route('publicaciones.show', ['post'=>$post,'user'=>$user]) }}"> --}}
-                            <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="{{ $post->titulo }}"  class="h-full w-full object-cover">
+                            <img src="{{ asset('uploads' . '/' . $user->lastPost->imagen) }}" alt=" "  class="h-full w-full object-cover">
                         </div>
                         
                     </div>
                 </div>
                 
                 
-                <div class="text-gray-500 text-sm mb-6 mx-3 px-2">{{ $post->Descripcion }}</div>
+                <div class="text-gray-500 text-sm mb-6 mx-3 px-2">{{ $user->lastPost->descripcion }}</div>
                 <div class="flex justify-start mb-4 border-t border-gray-100">
                     <div class="flex w-full mt-1 pt-2 pl-5">
                         <span class="bg-white transition ease-out duration-300 hover:text-red-500 border w-8 h-8 px-2 pt-2 text-center rounded-full text-gray-400 cursor-pointer mr-2">
@@ -247,9 +178,9 @@
                         
                     </div>
             {{-- Dar y mostrar likes --}}
-                    <form  class=" mt-0.5 pt-2 pr-5" action="{{ route('likes.store', ['post' => $post]) }}" method="POST">
+                    <form  class=" mt-0.5 pt-2 pr-5" action="{{-- {{ route('likes.store', ['post' => $post]) }} --}}" method="POST">
                         @csrf
-                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <input type="hidden" name="post_id" value="{{-- {{ $post->id }} --}}">
                     <button type="submit">
                     <div class="flex justify-end w-full mt-1 pt-2 pr-5">
                        
@@ -268,19 +199,22 @@
                 </div> 
                 <div class="flex w-full border-t border-gray-100">
                     <div class="mt-3 mx-5 flex flex-row text-xs">
-                        <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms">{{ $post->comentarios->count() }}</div></div>
+                        <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms">{{ $user->lastPost->comentarios->count() }}</div></div>
                         <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Views: <div class="ml-1 text-gray-400 text-ms"> 60k</div></div>
                     </div>
                     <div class="mt-3 mx-5 w-full flex justify-end text-xs">
-                        <div class="flex text-gray-700  rounded-md mb-2 mr-4 items-center">Likes: <div class="ml-1 text-gray-400  text-ms">{{ $post->likes->count() }}</div></div>
+                        <div class="flex text-gray-700  rounded-md mb-2 mr-4 items-center">Likes: <div class="ml-1 text-gray-400  text-ms">{{ $user->lastPost->likes->count() }}</div></div>
                     </div>
                 </div>
-                  
+                
+    
+
 
 
                 {{-- Mostrar Comentario --}}
-                @if ($post->comentarios->count())
-                    @foreach ($post->comentarios as $comentario)
+               {{--  @if ($post->comentarios->count()) --}}
+               @foreach ($user->lastPost->comentarios as $comentario)
+
                 <div class="text-black p-4 antialiased flex">
                     <img class="rounded-full h-8 w-8 mr-2 mt-1 " src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802">
                     <div>
@@ -296,7 +230,7 @@
                             <svg class="p-0.5 h-5 w-5 rounded-full z-20 bg-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><linearGradient id="a1" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#18AFFF"></stop><stop offset="100%" stop-color="#0062DF"></stop></linearGradient><filter id="c1" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"></feGaussianBlur><feOffset dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset><feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"></feComposite><feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0"></feColorMatrix></filter><path id="b1" d="M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z"></path></defs><g fill="none"><use fill="url(#a1)" xlink:href="#b1"></use><use fill="black" filter="url(#c1)" xlink:href="#b1"></use><path fill="white" d="M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z"></path></g></svg>
                             <span class="text-sm ml-1 pr-1.5 text-gray-500">3</span>
                             
-                            @auth
+                           {{--  @auth
                             @if ($post->user_id == auth()->user()->id)
                             <form action="{{ route('comentarios.destroy', $comentario->id) }}" method="POST">
                                 @csrf
@@ -306,19 +240,25 @@
         
                             </form>
                             @endif  
-                            @endauth      
+                            @endauth    --}}   
                             
                           
                         </div>
                     </div>
-                </div> @endforeach
-@else
+                    
+                </div> 
+                    @endforeach
+                
+    @else
 <p class="text-center
         text-s text-gray-900 font-sans">Aun no hay comentarios</p>
     @endif
+
+
     {{-- Fin Mostrar Comentario --}}
 
     {{-- Crear comentario --}}
+    {{-- @foreach ($user->lastPost->comentarios as $comentario)
     <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $user]) }}" method="POST">
         @csrf
         <div
@@ -338,16 +278,19 @@
         </div>
         </div>
     </form>
+    @endforeach --}}
     {{-- fin de crear comentario --}}
 
-    @endforeach
+ 
     {{-- Fin Mostrar publicacion --}}
-    <div>
+   {{--  <div>
         {{ $posts->links('pagination::tailwind') }}
 
-    </div>
+    </div> --}}
 
 
+   
+@endforeach
 
 
     </article>

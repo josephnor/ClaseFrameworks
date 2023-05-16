@@ -7,6 +7,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SecureurlController;
+use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Whoops\Run;
@@ -34,18 +35,17 @@ Route::get('/', function () {
 //Route::get('/registro', function () {
     //return view('registro');
 //});
-
-Route::get('/registrarse',[RegistroController::class,'index'])->name('registro');
-Route::post('/registrarse',[RegistroController::class,'store']);
-
+Route::get('/feed',[PerfilController::class,'index'])->name('inicio');
 
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'store']);
 
+Route::get('/registrarse',[RegistroController::class,'index'])->name('registro');
+Route::post('/registrarse',[RegistroController::class,'store']);
 Route::get('/{user:username}',[SecureurlController::class,'index'])->name('accesoseguro');
 
-Route::post('/logout',[CerrarSesionController::class,'store'])->name('logout');
+
 
 Route::get('/publicaciones/create',[SecureurlController::class,'create'])->name('publicaciones.create');
 Route::post('publicaciones',[SecureurlController::class,'store'])->name('publicaciones.store');
@@ -56,7 +56,7 @@ Route::get('publicaciones/{user:username}/{post}',[SecureurlController::class,'s
 
 
 Route::post('likes', [LikeController::class,'store'])->name('likes.store');
-//Route::get('/likes',[LikeController::class,'create'])->name('likes.create');
+
 
 
 // Ruta para mostrar el formulario de creación de comentarios
@@ -79,4 +79,6 @@ Route::delete('publicaciones/{post}/comentarios',[ComentarioController::class,'d
 Route::delete('publicaciones/{post}',[SecureurlController::class,'destroy'])->name('publicaciones.destroy');
 
 
+
+Route::post('/logout',[CerrarSesionController::class,'store'])->name('logout');
 
