@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewritCond %{REQUEST_URI} !/public
+    RewritRule ^(.*)$ public/$1
+</IfModule>
