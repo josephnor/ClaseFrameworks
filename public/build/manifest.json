@@ -1,0 +1,16 @@
+{
+  "img/ustafondo.jpeg": {
+    "file": "assets/ustafondo-8423a7a6.jpeg",
+    "src": "img/ustafondo.jpeg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-a9222a39.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-79bed536.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

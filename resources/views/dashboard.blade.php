@@ -105,7 +105,7 @@
         <aside class="">
         
             <div class="bg-white shadow rounded-lg p-10">
-                <a href="{{ route('inicio') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Inicio</a>
+               
 
                 <div class="flex flex-col gap-1 text-center items-center">
                     <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://scontent.fbga1-4.fna.fbcdn.net/v/t1.6435-9/78358936_2772741366103467_9174168625223827456_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGdOqajw0NIuryXg_TwJCs4AMeqj0UjN6kAx6qPRSM3qeCuQ5R1rjBz3Etu7DAiMUkR5sg3jRtOtjDQ1kX_Ha_o&_nc_ohc=MC5rQKUPHSsAX_3qju4&_nc_ht=scontent.fbga1-4.fna&oh=00_AfCcISjLC4xunIWx0JnvnEiQ7vENDgmvmvurWQDVPNFcPw&oe=64861802" alt="">
